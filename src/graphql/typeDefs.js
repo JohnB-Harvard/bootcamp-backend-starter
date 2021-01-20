@@ -6,7 +6,7 @@ module.exports = gql`
     register(input: RegisterInput!): AuthReturn!
     addCourse(input: addCourseInput!): Course
     updateCourse(input: updateCourseInput): Course
-    deleteCourse(input: Course): Course
+    deleteCourse(input: addCourseInput): Course
     addTodo(todo: addTodoInput!): Todo
     deleteTodo(todo: deleteTodoInput!): Todo
   }
