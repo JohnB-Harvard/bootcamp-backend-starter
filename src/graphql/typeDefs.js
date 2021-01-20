@@ -5,7 +5,7 @@ module.exports = gql`
     login(email: String!, password: String!): AuthReturn!
     register(input: RegisterInput!): AuthReturn!
     addCourse(input: addCourseInput!): Course
-    updateCourse(input: updateCourseInput): Course
+    updateCourse(id: ID!, input: updateCourseInput): Course
     deleteCourse(input: addCourseInput): Course
     addTodo(input: addTodoInput!): Todo
     updateTodo(input: updateTodoInput!): Todo
@@ -78,7 +78,7 @@ module.exports = gql`
     timeEnd: String
     hoursPerWeek: Int
     description: String
-    enrolled: Boolean!
+    enrolled: Boolean
   }
 
   type AuthReturn {

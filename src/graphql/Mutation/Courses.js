@@ -23,9 +23,9 @@ const addCourse = async (obj, { input }) => {
   }
 }
 
-const updateCourse = async (obj, { input }) => {
+const updateCourse = async (obj, { id, input }) => {
   try {
-    const updCourse = await Course.query().update({
+    const updCourse = await Course.query().patch({
       name: input.name,
       location: input.location,
       professor: input.professor,
@@ -38,7 +38,9 @@ const updateCourse = async (obj, { input }) => {
       timeEnd: input.timeEnd,
       hoursPerWeek: input.hoursPerWeek,
       enrolled: input.enrolled,
-    }).returning('*')
+    }).where('id', id).returning('*')
+    // eslint-disable-next-line no-console
+    console.log(updCourse)
     return updCourse
   } catch (err) {
     throw new Error('failed to update course')
