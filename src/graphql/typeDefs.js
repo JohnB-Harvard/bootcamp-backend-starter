@@ -62,6 +62,21 @@ module.exports = gql`
     enrolled: Boolean!
   }
 
+  input updateCourseInput {
+    title: String
+    professor: String
+    monday: Boolean
+    tuesday: Boolean
+    wednesday: Boolean
+    thursday: Boolean
+    friday: Boolean
+    timeStart: String
+    timeEnd: String
+    hoursPerWeek: Int
+    description: String
+    enrolled: Boolean!
+  }
+
   type AuthReturn {
     token: String!
     user: User!
