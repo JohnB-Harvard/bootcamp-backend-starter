@@ -1,6 +1,6 @@
 const { createTableIfNotExists } = require('../helpers')
 
-exports.up = async knex => createTableIfNotExists(knex, 'courses', table => {
+exports.up = async knex => createTableIfNotExists(knex, 'todos', table => {
   table
     .uuid('id')
     .notNullable()
