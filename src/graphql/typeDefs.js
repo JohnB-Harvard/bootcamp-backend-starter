@@ -4,9 +4,13 @@ module.exports = gql`
   type Mutation {
     login(email: String!, password: String!): AuthReturn!
     register(input: RegisterInput!): AuthReturn!
-    addCourse(course: addCourseInput!): Course
-    
+    addCourse(input: addCourseInput!): Course
+    updateCourse(input: updateCourseInput): Course
+    deleteCourse(input: addCourseInput): Course
+    addTodo(todo: addTodoInput!): Todo
+    deleteTodo(todo: deleteTodoInput!): Todo
   }
+  
   type Query {
     userCourses(userID: ID!): [Course!]
     userById(userID: ID!): User
@@ -59,6 +63,21 @@ module.exports = gql`
     enrolled: Boolean!
   }
 
+  input updateCourseInput {
+    title: String
+    professor: String
+    monday: Boolean
+    tuesday: Boolean
+    wednesday: Boolean
+    thursday: Boolean
+    friday: Boolean
+    timeStart: String
+    timeEnd: String
+    hoursPerWeek: Int
+    description: String
+    enrolled: Boolean!
+  }
+
   type AuthReturn {
     token: String!
     user: User!
@@ -85,4 +104,3 @@ module.exports = gql`
     id: ID!
   }
 `
-

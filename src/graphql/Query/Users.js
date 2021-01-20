@@ -3,9 +3,9 @@ const User = require('../../models/User')
 const Todo = require('../../models/Todo')
 
 
-const userById = async (obj, { id }) => {
+const userById = async (obj, { userID }) => {
   try {
-    const user = await User.query().findOne('id', id)
+    const user = await User.query().findOne('id', userID)
     return user
   } catch (err) {
     throw new Error('failed to get user')
