@@ -5,6 +5,7 @@ const {
 } = require('../../lib/auth')
 
 const login = async (obj, { email, password }) => {
+  console.log(email, password)
   const user = await User.query().findOne({
     email,
   })
