@@ -1,5 +1,7 @@
 const Course = require('../../models/Course')
 const User = require('../../models/User')
+const Todo = require('../../models/Todo')
+
 
 const userById = async (obj, { userID }) => {
   try {
@@ -24,6 +26,11 @@ const courses = async ({ id }) => {
   return c
 }
 
+const todos = async ({ id }) => {
+  const t = await Todo.query().where('userId', id)
+  return t
+}
+
 const resolver = {
   Query: {
     userById,
@@ -31,6 +38,7 @@ const resolver = {
   },
   User: {
     courses,
+    todos,
   },
 }
 

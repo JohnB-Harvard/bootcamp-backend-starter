@@ -16,7 +16,7 @@ module.exports = gql`
     userById(userID: ID!): User
     userByEmail(email: String!): User
     courseById(courseID: ID!): Course
-    todoById(id: ID!): Todo
+    todoById(todoID: ID!): Todo
   }
 
   type User {
@@ -28,6 +28,7 @@ module.exports = gql`
     createdAt: String!
     updatedAt: String!
     courses: [Course]
+    todos: [Todo]
   }
 
   type Course {
