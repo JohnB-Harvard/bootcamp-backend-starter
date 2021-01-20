@@ -9,9 +9,19 @@ const todoById = async (obj, { todoID }) => {
   }
 }
 
+const userTodos = async (obj, args, { user }) => {
+  try {
+    const e = await Todo.query().where('userId', user.id)
+    return e
+  } catch (err) {
+    throw new Error('Failed to fetch user')
+  }
+}
+
 const resolver = {
   Query: {
     todoById,
+    userTodos,
   },
 }
 

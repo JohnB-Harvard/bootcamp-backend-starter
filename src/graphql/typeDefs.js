@@ -7,8 +7,9 @@ module.exports = gql`
     addCourse(input: addCourseInput!): Course
     updateCourse(input: updateCourseInput): Course
     deleteCourse(input: addCourseInput): Course
-    addTodo(todo: addTodoInput!): Todo
-    deleteTodo(todo: deleteTodoInput!): Todo
+    addTodo(input: addTodoInput!): Todo
+    updateTodo(input: updateTodoInput!): Todo
+    deleteTodo(input: addTodoInput!): Todo
   }
   
   type Query {
@@ -17,6 +18,7 @@ module.exports = gql`
     userByEmail(email: String!): User
     courseById(courseID: ID!): Course
     todoById(todoID: ID!): Todo
+    userTodos: [Todo!]
   }
 
   type User {
@@ -98,10 +100,11 @@ module.exports = gql`
     user: User!
   }
   input addTodoInput {
-    name: String
+    name: String!
     desc: String
   }
-  input deleteTodoInput {
-    id: ID!
+  input updateTodoInput {
+    name: String
+    desc: String
   }
 `
