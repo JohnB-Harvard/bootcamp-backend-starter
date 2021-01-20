@@ -2,7 +2,6 @@ const Course = require('../../models/Course')
 const User = require('../../models/User')
 const Todo = require('../../models/Todo')
 
-
 const userById = async (obj, { userID }) => {
   try {
     const user = await User.query().findOne('id', userID)

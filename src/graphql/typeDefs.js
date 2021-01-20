@@ -49,7 +49,7 @@ module.exports = gql`
   }
 
   input addCourseInput {
-    title: String!
+    name: String!
     professor: String!
     monday: Boolean!
     tuesday: Boolean!
@@ -61,10 +61,11 @@ module.exports = gql`
     hoursPerWeek: Int
     description: String
     enrolled: Boolean!
+    userId: ID!
   }
 
   input updateCourseInput {
-    title: String
+    name: String
     professor: String
     monday: Boolean
     tuesday: Boolean

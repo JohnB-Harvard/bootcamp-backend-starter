@@ -52,6 +52,7 @@ exports.up = async knex => createTableIfNotExists(knex, 'courses', table => {
   table
     .boolean('enrolled')
     .notNullable()
+    .defaultTo(false)
 
   table
     .uuid('userId')

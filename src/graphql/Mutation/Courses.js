@@ -14,7 +14,8 @@ const addCourse = async (obj, { input }) => {
       timeStart: input.timeStart,
       timeEnd: input.timeEnd,
       hoursPerWeek: input.hoursPerWeek,
-      enrolled: false,
+      enrolled: input.enrolled,
+      userId: input.userId,
     }).returning('*')
     return newCourse
   } catch (err) {
