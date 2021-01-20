@@ -5,6 +5,7 @@ const addTodo = async (obj, { input }) => {
     const newTodo = await Todo.query().insert({
       name: input.name,
       desc: input.desc,
+      userId: input.userId,
     }).returning('*')
     return newTodo
   } catch (err) {

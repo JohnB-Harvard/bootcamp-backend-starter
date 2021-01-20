@@ -102,6 +102,7 @@ module.exports = gql`
   input addTodoInput {
     name: String!
     desc: String
+    userId: ID!
   }
   input updateTodoInput {
     name: String
