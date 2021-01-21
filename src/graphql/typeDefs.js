@@ -19,6 +19,7 @@ module.exports = gql`
     courseById(courseID: ID!): Course
     todoById(todoID: ID!): Todo
     userTodos: [Todo!]
+    userViewer: User
   }
 
   type User {
