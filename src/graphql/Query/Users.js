@@ -20,6 +20,14 @@ const userByEmail = async (obj, { email }) => {
   }
 }
 
+const userViewer = async (obj, _params, { user: { id } }) => {
+  const user = User.query().findOne('id', id)
+  if (user) {
+    return user
+  }
+  throw new Error('viewer query failed')
+}
+
 const courses = async ({ id }) => {
   const c = await Course.query().where('userId', id)
   return c
@@ -34,6 +42,7 @@ const resolver = {
   Query: {
     userById,
     userByEmail,
+    userViewer,
   },
   User: {
     courses,

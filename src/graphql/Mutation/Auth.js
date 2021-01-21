@@ -20,6 +20,7 @@ const login = async (obj, { email, password }) => {
   // If successful login, set authentication information
   const payload = {
     id: user.id,
+    email: user.email,
   }
   const token = createToken(payload)
 
@@ -45,6 +46,7 @@ const register = async (obj, { input: { email, password, firstName, lastName } }
   // If successful registration, set authentication information
   const payload = {
     id: user.id,
+    email: user.email,
   }
   const token = createToken(payload)
 
