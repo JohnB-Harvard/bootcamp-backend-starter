@@ -4,12 +4,12 @@ const addTodo = async (obj, { input }) => {
   try {
     const newTodo = await Todo.query().insert({
       name: input.name,
-      desc: input.desc,
+      description: input.description,
       userId: input.userId,
     }).returning('*')
     return newTodo
   } catch (err) {
-    throw new Error('failed to add todo')
+    throw new Error(err)
   }
 }
 
@@ -17,7 +17,7 @@ const updateTodo = async (obj, { input }) => {
   try {
     const updTodo = await Todo.query().update({
       name: input.name,
-      desc: input.desc,
+      description: input.description,
     }).returning('*')
     return updTodo
   } catch (err) {

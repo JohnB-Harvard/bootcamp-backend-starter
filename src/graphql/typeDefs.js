@@ -97,16 +97,16 @@ module.exports = gql`
   type Todo {
     id: ID!
     name: String!
-    desc: String
+    description: String
     user: User!
   }
   input addTodoInput {
     name: String!
-    desc: String
+    description: String
     userId: ID!
   }
   input updateTodoInput {
     name: String
-    desc: String
+    description: String
   }
 `
